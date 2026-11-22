@@ -1,0 +1,704 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Dr. Ayesha Karim Cardiology</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>
+/* Runs before first paint so the wrong theme never flashes. Light is the default; a saved choice wins. */
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+})();
+</script>
+<style>
+/* Layout: a dark cinematic scroll stage (heart plays frame by frame) that dissolves into a light, typographic page: ruled lists, one inverse band, asymmetric splits. One radius (2px) everywhere. */
+:root {
+  --bg: #f2f4f6;
+  --bg-alt: #e8ecf0;
+  --text: #0c1627;
+  --mute: #4a586d;
+  --line: rgba(12, 22, 39, .16);
+  --accent: #c9253a;
+  --on-accent: #ffffff;
+  --link: #0b5c9e;
+  --field: #fbfcfd;
+  --band: #0a1530;
+  --band-text: #e9effb;
+  --band-mute: #a3b2cf;
+  --stage-ink: #040a16;
+  --stage-text: #e9effb;
+  --stage-mute: #a8b6d1;
+  --stage-red: #ff5565;
+  --stage-ice: #7ccfff;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --r: 2px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --t: .28s;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0a1220;
+  --bg-alt: #0e192d;
+  --text: #e8eefa;
+  --mute: #9aa9c4;
+  --line: rgba(150, 185, 240, .18);
+  --accent: #ff5565;
+  --on-accent: #1a0509;
+  --link: #7ccfff;
+  --field: #0e192d;
+  --band: #060c19;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font: 400 16px/1.65 var(--f-body); margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: hidden;
+  transition: background-color var(--t), color var(--t);
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+body.on-stage::before { background: var(--stage-ink); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.04; letter-spacing: -.02em; }
+.kicker { font: 500 12px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+
+/* header */
+.top {
+  position: fixed; z-index: 20; left: 0; right: 0; top: env(safe-area-inset-top, 0px);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));
+  background: var(--bg); border-bottom: 1px solid var(--line); color: var(--text);
+  transition: background-color var(--t), border-color var(--t), color var(--t);
+}
+.top.on-stage { background: linear-gradient(var(--stage-ink), rgba(4,10,22,0)); border-bottom-color: transparent; color: var(--stage-text); }
+.brand { font: 700 17px/1.1 var(--f-display); text-decoration: none; }
+.brand small { display: block; font: 400 11px/1.4 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; opacity: .65; margin-top: 2px; }
+.top nav { display: flex; gap: 26px; align-items: center; }
+.top nav a:not(.btn) { text-decoration: none; font-size: 14px; opacity: .72; transition: opacity var(--t); }
+.top nav a:not(.btn):hover { opacity: 1; }
+.btn {
+  display: inline-block; text-decoration: none; cursor: pointer; border: 1px solid var(--accent);
+  background: var(--accent); color: var(--on-accent); font: 700 14px/1 var(--f-display);
+  padding: 14px 22px; border-radius: var(--r); transition: background-color var(--t), color var(--t), border-color var(--t);
+}
+.btn:hover { background: transparent; color: var(--accent); }
+.btn.quiet { background: transparent; color: inherit; border-color: currentColor; }
+.btn.quiet:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+.stage .btn { background: var(--stage-red); border-color: var(--stage-red); color: #1a0509; }
+.stage .btn:hover { background: transparent; color: var(--stage-red); }
+.stage .btn.quiet { background: transparent; color: var(--stage-text); border-color: rgba(233,239,251,.4); }
+.stage .btn.quiet:hover { background: var(--stage-text); color: var(--stage-ink); }
+.top .btn { padding: 10px 16px; font-size: 13px; }
+.top.on-stage .btn { background: var(--stage-red); border-color: var(--stage-red); color: #1a0509; }
+.top.on-stage .btn:hover { background: transparent; color: var(--stage-red); }
+.tgl { display: grid; place-items: center; width: 36px; height: 36px; background: none; border: 1px solid currentColor; border-radius: var(--r); color: inherit; cursor: pointer; opacity: .75; transition: opacity var(--t); }
+.tgl:hover { opacity: 1; }
+.tgl svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tgl .sun { display: none; }
+:root[data-theme="dark"] .tgl .sun { display: block; }
+:root[data-theme="dark"] .tgl .moon { display: none; }
+@media (max-width: 720px) { .top nav a:not(.btn) { display: none; } .top nav { gap: 10px; } }
+
+/* scroll stage (always a dark film; the page around it follows the theme) */
+.stage { position: relative; height: 650vh; margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); background: var(--stage-ink); color: var(--stage-text); }
+.pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; perspective: 1400px; background: radial-gradient(ellipse at 50% 45%, #0b1a38 0%, var(--stage-ink) 70%); }
+.cv-wrap { position: absolute; inset: 0; will-change: transform; }
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.vig { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 50%, transparent 42%, var(--stage-ink) 98%); }
+.dissolve { position: absolute; inset: 0; z-index: 8; background: var(--bg); opacity: 0; pointer-events: none; }
+.beat {
+  position: absolute; z-index: 5; top: 50%; width: min(460px, 100%); opacity: 0; will-change: transform, opacity;
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+}
+.beat.l { left: max(0px, calc((100% - 1180px) / 2)); }
+.beat.r { right: max(0px, calc((100% - 1180px) / 2)); }
+.beat .kicker { color: var(--stage-ice); }
+.beat h1, .beat h2 { font-size: clamp(34px, 4.8vw, 66px); font-weight: 800; margin: 18px 0 16px; }
+.beat h1 em, .beat h2 em { font-style: normal; color: var(--stage-red); }
+.beat p { color: var(--stage-mute); font-size: 17px; max-width: 36ch; margin: 0 0 26px; }
+.beat .row { display: flex; gap: 10px; flex-wrap: wrap; }
+@media (orientation: landscape) and (max-height: 520px) {
+  .beat { width: min(330px, 46%); }
+  .beat h1, .beat h2 { font-size: clamp(26px, 4.4vw, 40px); margin: 10px 0; }
+  .beat p { font-size: 14px; margin-bottom: 14px; }
+  .beat .btn { padding: 11px 16px; }
+  .intro h2 { font-size: clamp(28px, 4.6vw, 48px); }
+}
+@media (max-width: 760px), (orientation: portrait) {
+  .beat { top: auto; bottom: calc(8svh + env(safe-area-inset-bottom, 0px)); width: 100%; max-width: 620px; }
+  .beat.l, .beat.r { left: 0; right: auto; }
+  .beat h1, .beat h2 { font-size: clamp(34px, 8.5vw, 60px); }
+  .beat p { text-shadow: 0 1px 14px var(--stage-ink); }
+}
+.rail { position: absolute; z-index: 6; left: 0; right: 0; bottom: 0; height: 2px; background: rgba(150,185,240,.16); }
+.rail i { display: block; height: 100%; width: 0; background: var(--stage-red); }
+.hint { position: absolute; z-index: 6; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); font: 400 11px/1 var(--f-mono); letter-spacing: .2em; color: var(--stage-mute); text-transform: uppercase; transition: opacity .4s; }
+.loader { position: absolute; z-index: 7; top: calc(70px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); font: 400 11px/1 var(--f-mono); color: var(--stage-mute); letter-spacing: .14em; transition: opacity .5s; }
+
+/* sections */
+.wrap { max-width: 1180px; margin: 0 auto; }
+section.blk { padding-block: clamp(72px, 10vw, 140px); }
+
+.intro { display: grid; grid-template-columns: 8fr 4fr; gap: clamp(32px, 7vw, 110px); align-items: end; }
+.intro h2 { font-size: clamp(32px, 5.2vw, 72px); font-weight: 700; line-height: 1.06; margin-top: 22px; }
+.intro h2 span { color: var(--mute); }
+.intro dl { margin: 0; display: grid; gap: 0; }
+.intro dl div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.intro dl div:last-child { border-bottom: 1px solid var(--line); }
+.intro dt { color: var(--mute); }
+.intro dd { margin: 0; font: 500 14px/1.6 var(--f-mono); font-variant-numeric: tabular-nums; text-align: right; }
+@media (max-width: 860px) { .intro { grid-template-columns: 1fr; } }
+
+.sh { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+.sh h2 { font-size: clamp(30px, 4vw, 52px); font-weight: 700; margin-top: 14px; }
+.sh p { color: var(--mute); max-width: 38ch; margin: 0; }
+.rows { border-top: 1px solid var(--text); }
+.row3 { display: grid; grid-template-columns: 4fr 5fr 2fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); align-items: baseline; transition: padding var(--t) var(--ease), background-color var(--t); }
+.row3:hover { padding-left: 14px; background: var(--bg-alt); }
+.row3 h3 { font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -.015em; }
+.row3 p { margin: 0; color: var(--mute); font-size: 15px; max-width: 52ch; }
+.row3 span { font: 400 12px/1.5 var(--f-mono); letter-spacing: .06em; text-align: right; color: var(--link); text-transform: uppercase; }
+@media (max-width: 760px) { .row3 { grid-template-columns: 1fr; gap: 6px; } .row3 span { text-align: left; } .row3:hover { padding-left: 0; background: none; } }
+
+.about { display: grid; grid-template-columns: 4fr 7fr; gap: clamp(32px, 7vw, 100px); align-items: start; }
+.portrait { aspect-ratio: 4/5; max-width: 100%; border-radius: var(--r); background: var(--bg-alt); border: 1px solid var(--line); display: grid; place-items: center; text-align: center; color: var(--mute); font: 400 12px/1.7 var(--f-mono); padding: 24px; margin-top: 56px; }
+.about h2 { font-size: clamp(30px, 4.2vw, 58px); font-weight: 700; margin: 16px 0 28px; }
+.about p { color: var(--mute); max-width: 54ch; margin: 0 0 16px; }
+.cred { list-style: none; padding: 0; margin: 32px 0 0; border-top: 1px solid var(--line); }
+.cred li { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; font-size: 15px; }
+.cred li span { font: 400 12px/1.6 var(--f-mono); color: var(--mute); text-transform: uppercase; letter-spacing: .08em; }
+@media (max-width: 820px) { .about { grid-template-columns: 1fr; } .portrait { max-width: 320px; margin-top: 0; } }
+
+.band { background: var(--band); color: var(--band-text); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+.band .kicker { color: var(--band-mute); }
+.visit { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 7vw, 100px); }
+.visit h2 { font-size: clamp(30px, 4.2vw, 58px); font-weight: 700; margin-top: 16px; }
+.visit ol { list-style: none; padding: 0; margin: 0; counter-reset: s; border-top: 1px solid rgba(233,239,251,.28); }
+.visit li { counter-increment: s; display: grid; grid-template-columns: 56px 1fr; gap: 8px; padding: 28px 0; border-bottom: 1px solid rgba(233,239,251,.16); }
+.visit li::before { content: counter(s, decimal-leading-zero); font: 500 13px/2 var(--f-mono); color: var(--stage-ice); }
+.visit li h3 { font-size: 24px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 6px; }
+.visit li p { margin: 0; color: var(--band-mute); max-width: 48ch; }
+@media (max-width: 820px) { .visit { grid-template-columns: 1fr; } }
+
+.faq { display: grid; grid-template-columns: 4fr 7fr; gap: clamp(32px, 7vw, 100px); }
+.faq h2 { font-size: clamp(30px, 4vw, 52px); font-weight: 700; margin-top: 14px; }
+details { border-top: 1px solid var(--line); }
+details:last-child { border-bottom: 1px solid var(--line); }
+summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; padding: 22px 0; font: 600 19px/1.3 var(--f-display); letter-spacing: -.01em; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font: 400 22px/1 var(--f-mono); color: var(--link); transition: transform var(--t) var(--ease); }
+details[open] summary::after { transform: rotate(45deg); }
+details p { margin: 0; padding: 0 40px 24px 0; color: var(--mute); max-width: 58ch; }
+@media (max-width: 820px) { .faq { grid-template-columns: 1fr; } }
+
+.book { background: var(--bg-alt); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); border-top: 1px solid var(--line); }
+.book .grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(32px, 7vw, 100px); }
+.book h2 { font-size: clamp(32px, 4.6vw, 62px); font-weight: 800; margin: 16px 0 28px; }
+.hours { width: 100%; border-collapse: collapse; font-size: 15px; }
+.hours td { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.hours td:last-child { text-align: right; font: 400 13px/1.6 var(--f-mono); color: var(--mute); font-variant-numeric: tabular-nums; }
+.contact { margin: 22px 0 0; display: grid; gap: 4px; color: var(--mute); font-size: 15px; }
+.contact b { color: var(--text); font-weight: 500; user-select: all; }
+.emerg { margin: 28px 0 0; padding: 14px 0 0; border-top: 2px solid var(--accent); font-size: 14px; max-width: 46ch; }
+form { display: grid; gap: 16px; align-content: start; min-width: 0; }
+form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+label { display: grid; gap: 8px; font: 500 12px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mute); min-width: 0; }
+input, select, textarea { font: 400 16px/1.4 var(--f-body); color: var(--text); background: var(--field); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; width: 100%; min-width: 0; letter-spacing: 0; text-transform: none; transition: border-color var(--t); }
+input:hover, select:hover, textarea:hover { border-color: var(--mute); }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--link); outline-offset: 0; border-color: var(--link); }
+button.btn:disabled { opacity: .45; cursor: not-allowed; }
+form .btn { justify-self: start; }
+.note { font-size: 13px; color: var(--mute); margin: 0; max-width: 52ch; }
+@media (max-width: 820px) { .book .grid { grid-template-columns: 1fr; } form .two { grid-template-columns: 1fr; } }
+footer { padding-block: 36px calc(36px + env(safe-area-inset-bottom, 0px)); color: var(--mute); font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+/* ---- below-hero motion (hero rules above are untouched) ---- */
+section[id] { scroll-margin-top: 60px; }
+[data-r="up"] { transition: opacity .8s var(--ease), transform .8s var(--ease); }
+[data-r="up"].pre { opacity: 0; transform: translateY(22px); }
+[data-r="stagger"].pre > * { opacity: 0; }
+[data-r="stagger"].in > * { animation: rise .8s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 90ms); }
+[data-r="stagger"][data-dir="x"].in > * { animation-name: riseX; animation-delay: calc(var(--i, 0) * 70ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+@keyframes riseX { from { opacity: 0; transform: translateX(-22px); } }
+[data-r="words"] .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .14em; margin-bottom: -.14em; }
+[data-r="words"] .w i { display: inline-block; font-style: normal; transition: transform .9s var(--ease) calc(var(--i, 0) * 32ms); }
+[data-r="words"].pre .w i { transform: translateY(112%); }
+[data-r="clip"] { transition: clip-path 1.2s var(--ease); }
+[data-r="clip"].pre { clip-path: inset(0 0 100% 0); }
+[data-count] { font-weight: inherit; font-variant-numeric: tabular-nums; }
+
+.portrait { display: block; padding: 0; position: relative; overflow: hidden; }
+.ph { position: absolute; inset: -9% 0; transform: translate3d(0, var(--py, 0px), 0); will-change: transform; }
+.ph-in { height: 100%; display: grid; place-items: center; text-align: center; padding: 24px; transition: transform 1.5s var(--ease); }
+.portrait.pre .ph-in { transform: scale(1.14); }
+.cred li div { min-width: 0; }
+
+.vis-head { align-self: start; }
+@media (min-width: 821px) { .vis-head { position: sticky; top: 120px; } }
+.js .visit li { opacity: .45; transition: opacity .5s var(--ease); }
+.js .visit li.on { opacity: 1; }
+
+.top nav a:not(.btn) { position: relative; padding-block: 4px; }
+.top nav a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease); }
+.top nav a:not(.btn):hover::after, .top nav a.act::after { transform: scaleX(1); }
+.top nav a.act { opacity: 1; }
+.tgl svg { transition: transform .5s var(--ease); }
+.tgl:active { transform: scale(.94); }
+.top .btn, .book .btn { transition: background-color var(--t), color var(--t), border-color var(--t), transform var(--t) var(--ease); }
+.top .btn:active, .book .btn:active { transform: translateY(1px); }
+
+.row3 { position: relative; }
+.row3::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .55s var(--ease); }
+.row3 h3 { transition: color var(--t); }
+.row3:hover::after { transform: scaleX(1); }
+summary { transition: color var(--t); }
+summary:active { opacity: .7; }
+label { transition: color var(--t); }
+label:focus-within { color: var(--link); }
+
+.fl { display: flex; gap: 22px; flex-wrap: wrap; }
+.fl a { text-decoration: none; padding-bottom: 2px; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .35s var(--ease), color var(--t); }
+.fl a:hover { color: var(--text); background-size: 100% 1px; }
+@media (hover: hover) {
+  .row3:hover h3 { color: var(--accent); }
+  summary:hover { color: var(--link); }
+  .top .btn:hover { transform: translateY(-1px); }
+  .book .btn:hover { transform: translateY(-2px); }
+  .tgl:hover svg { transform: rotate(25deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .pre { opacity: 1; transform: none; }
+}
+</style>
+
+<header class="top on-stage" id="top-bar">
+  <a class="brand" href="#top">Dr. Ayesha Karim<small>Cardiology</small></a>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#faq">Questions</a>
+    <button class="tgl" id="tgl" type="button" aria-label="Switch to dark mode">
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <a class="btn" href="#book">Book a visit</a>
+  </nav>
+</header>
+
+<main id="top">
+<div class="stage" id="stage">
+  <div class="pin">
+    <div class="cv-wrap" id="cw"><canvas id="cv" aria-label="Animated 3D heart that rotates and lights up as you scroll" role="img"></canvas></div>
+    <div class="vig"></div>
+    <div class="loader" id="loader">LOADING 0%</div>
+
+    <div class="beat l" data-a="0" data-b="0.17">
+      <span class="kicker">Consultant cardiologist · Karachi</span>
+      <h1>Your heart, <em>understood.</em></h1>
+      <p>Careful diagnosis, clear explanations and long-term care for every stage of heart health.</p>
+      <div class="row"><a class="btn" href="#book">Book a consultation</a><a class="btn quiet" href="#services">What I treat</a></div>
+    </div>
+    <div class="beat r" data-a="0.2" data-b="0.43">
+      <span class="kicker">01 / Structure</span>
+      <h2>Four chambers, <em>mapped.</em></h2>
+      <p>Echocardiography shows the walls, valves and pumping strength in real time. Nothing hidden behind jargon.</p>
+    </div>
+    <div class="beat l" data-a="0.46" data-b="0.71">
+      <span class="kicker">02 / Circulation</span>
+      <h2>Follow the <em>blood.</em></h2>
+      <p>From the aorta to the coronary arteries, ECG, stress testing and angiography find blockages before they become emergencies.</p>
+    </div>
+    <div class="beat r" data-a="0.74" data-b="0.96">
+      <span class="kicker">03 / Your plan</span>
+      <h2>A plan built <em>around you.</em></h2>
+      <p>Medication, lifestyle and follow-up that fit your life, explained in plain words.</p>
+      <div class="row"><a class="btn" href="#book">Book a consultation</a></div>
+    </div>
+
+    <div class="hint" id="hint">Scroll</div>
+    <div class="rail"><i id="bar"></i></div>
+    <div class="dissolve" id="dis"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="blk" id="intro">
+    <div class="intro">
+      <div>
+        <span class="kicker">The practice</span>
+        <h2 data-r="words">Heart care that begins with listening. <span>Tests are chosen to answer your question, not to fill a report.</span></h2>
+      </div>
+      <dl data-r="stagger" data-dir="x">
+        <div><dt>Same-day ECG and echo</dt><dd>Yes</dd></div>
+        <div><dt>First visit</dt><dd><b data-count="45">45</b> min</dd></div>
+        <div><dt>Languages</dt><dd>Urdu · English</dd></div>
+        <div><dt>Clinic days</dt><dd>Mon – Sat</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="blk" id="services" style="padding-top:0">
+    <div class="sh" data-r="up">
+      <div><span class="kicker">Services</span><h2>What I diagnose and treat</h2></div>
+      <p>Most patients leave the first visit with a diagnosis, a plan and their questions answered.</p>
+    </div>
+    <div class="rows" data-r="stagger" data-dir="x">
+      <div class="row3"><h3>ECG and echocardiography</h3><p>Resting 12-lead ECG and full echo with colour Doppler for chest pain, breathlessness and murmurs.</p><span>Same-day report</span></div>
+      <div class="row3"><h3>Treadmill stress test</h3><p>Exercise testing to find what triggers chest pain and how the rhythm behaves under load.</p><span>30 min</span></div>
+      <div class="row3"><h3>24-hour Holter and BP</h3><p>Ambulatory rhythm and blood pressure monitoring for palpitations, dizziness and fainting.</p><span>Results in 48 h</span></div>
+      <div class="row3"><h3>Hypertension and cholesterol</h3><p>Blood pressure, lipids and diabetes risk managed together, with a target you can track at home.</p><span>Ongoing</span></div>
+      <div class="row3"><h3>Angiography and stenting</h3><p>Coronary angiography, with referral for angioplasty or bypass when a blockage needs treating.</p><span>Hospital-based</span></div>
+      <div class="row3"><h3>After a heart attack</h3><p>Medication review, cardiac rehab advice and scheduled follow-up after discharge.</p><span>Follow-up plan</span></div>
+    </div>
+  </section>
+
+  <section class="blk" id="about" style="padding-top:0">
+    <div class="about">
+      <div class="portrait" data-r="clip"><div class="ph" data-par><div class="ph-in">Doctor’s portrait<br>(4:5 photo goes here)</div></div></div>
+      <div>
+        <span class="kicker">About the doctor</span>
+        <h2 data-r="words">Calm, thorough and unhurried.</h2>
+        <p data-r="up">Dr. Ayesha Karim believes patients should leave every appointment knowing what was found, what it means and what happens next.</p>
+        <p data-r="up">Her practice covers coronary artery disease, hypertension, heart failure, rhythm disorders and preventive cardiology.</p>
+        <ul class="cred" data-r="stagger">
+          <li>MBBS<span>Medical degree</span></li>
+          <li>FCPS Cardiology<span>Specialist training</span></li>
+          <li>Fellow, American College of Cardiology<span>Fellowship</span></li>
+          <li><div><b data-count="15">15</b>+ years in clinical practice</div><span>Experience</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="blk band">
+  <div class="wrap visit">
+    <div class="vis-head"><span class="kicker">How a visit works</span><h2 data-r="words">One appointment, a clear answer.</h2></div>
+    <ol data-r="stagger">
+      <li><div><h3>Conversation and examination</h3><p>We go through symptoms, family history and medicines before anything else, then examine you.</p></div></li>
+      <li><div><h3>Tests the same day</h3><p>ECG and echocardiography are done in the clinic, so you are not sent across the city for results.</p></div></li>
+      <li><div><h3>Diagnosis and written plan</h3><p>You leave with a written plan covering medicines, lifestyle changes and when to return.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="blk" id="faq">
+    <div class="faq">
+      <div><span class="kicker">Questions</span><h2 data-r="words">Before you come in</h2></div>
+      <div data-r="stagger">
+        <details><summary>What should I bring to the first visit?</summary><p>Previous ECGs, echo or angiography reports, discharge summaries and every medicine you take, in the original packets if possible.</p></details>
+        <details><summary>Do I need to fast for the tests?</summary><p>No fasting is needed for an ECG or echo. If blood tests are advised, you will be told how to prepare when you book.</p></details>
+        <details><summary>How soon will I get my reports?</summary><p>ECG and echo reports are ready the same day. Holter and ambulatory BP results follow within two days.</p></details>
+        <details><summary>When should I go to the emergency room instead?</summary><p>Go straight to the nearest emergency department for chest pain lasting more than a few minutes, sudden breathlessness, fainting or a racing heart with dizziness.</p></details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="blk book" id="book">
+  <div class="wrap grid">
+    <div>
+      <span class="kicker">Appointments</span>
+      <h2 data-r="words">Book your consultation.</h2>
+      <table class="hours" aria-label="Clinic hours"><tbody data-r="stagger" data-dir="x">
+        <tr><td>Monday – Thursday</td><td>5:00 pm – 9:00 pm</td></tr>
+        <tr><td>Friday</td><td>4:00 pm – 7:00 pm</td></tr>
+        <tr><td>Saturday</td><td>10:00 am – 2:00 pm</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </tbody></table>
+      <div class="contact" data-r="up">
+        <span>Clinic: <b>Suite 4, Medical Centre, Clifton, Karachi</b></span>
+        <span>Phone / WhatsApp: <b>+92 300 0000000</b></span>
+      </div>
+      <p class="emerg" data-r="up"><b>Chest pain, sudden breathlessness or fainting?</b> Do not wait for an appointment. Go to the nearest emergency department now.</p>
+    </div>
+    <form id="bf" data-r="stagger">
+      <div class="two">
+        <label for="nm">Full name<input id="nm" required autocomplete="name"></label>
+        <label for="ph">Phone<input id="ph" type="tel" required autocomplete="tel"></label>
+      </div>
+      <div class="two">
+        <label for="dt">Preferred day<select id="dt"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option></select></label>
+        <label for="rs">Reason<select id="rs"><option>Chest pain</option><option>Palpitations</option><option>High blood pressure</option><option>Follow-up visit</option><option>Heart check-up</option><option>Other</option></select></label>
+      </div>
+      <label for="ms">Anything else I should know<textarea id="ms" rows="4"></textarea></label>
+      <button class="btn" type="submit">Request by WhatsApp</button>
+      <p class="note" id="fn">This opens WhatsApp with your details filled in. The clinic confirms your slot by reply.</p>
+    </form>
+  </div>
+</section>
+
+<div class="wrap"><footer><span>© Dr. Ayesha Karim · Consultant Cardiologist</span><nav class="fl" aria-label="Footer"><a href="#services">Services</a><a href="#about">About</a><a href="#faq">Questions</a><a href="#book">Book a visit</a></nav><span>Information on this site does not replace medical advice.</span></footer></div>
+</main>
+
+<script>
+(function () {
+  var N = 239, frames = new Array(N), loaded = 0, raf = 0, alive = true;
+  var cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+  var stage = document.getElementById('stage'), cw = document.getElementById('cw');
+  var beats = [].slice.call(document.querySelectorAll('.beat'));
+  var bar = document.getElementById('bar'), dis = document.getElementById('dis');
+  var loader = document.getElementById('loader'), hint = document.getElementById('hint');
+  var topBar = document.getElementById('top-bar');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lastDrawnP = -1, W = 0, H = 0, dpr = 1, current = 0, shown = -1, px = 0, py = 0, cpx = 0, cpy = 0, onStage = null;
+
+  var mqCompact = window.matchMedia('(max-width: 760px), (orientation: portrait)');
+  function isCompact() { return mqCompact.matches; }
+  function smooth(q, a, b) { var t = Math.min(1, Math.max(0, (q - a) / (b - a))); return t * t * (3 - 2 * t); }
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = cv.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    shown = -1;
+  }
+  function ready(im) { return im && im.complete && im.naturalWidth; }
+  function draw(i) {
+    var k = i;
+    while (k >= 0 && !ready(frames[k])) k--;
+    if (k < 0) { k = i; while (k < N && !ready(frames[k])) k++; }
+    var img = frames[k];
+    if (!ready(img)) return;
+    var cover = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+    var compact = isCompact(), short = !compact && H < 520;
+    var s = compact ? Math.min(cover, W / img.naturalWidth * (W < 600 ? 1.9 : 1.6)) : short ? H / img.naturalHeight * 0.78 : cover * 0.8;
+    var side = compact ? 0 : (short ? 1.5 : 1) * ((1 - 2 * smooth(current, 0.17, 0.2)) + 2 * smooth(current, 0.43, 0.46) - 2 * smooth(current, 0.71, 0.74));
+    var dw = img.naturalWidth * s, dh = img.naturalHeight * s;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = '#040a16'; ctx.fillRect(0, 0, W, H);
+    ctx.imageSmoothingQuality = 'high';
+    var x0 = (W - dw) / 2 + side * W * 0.11, y0 = (H - dh) / 2 - (compact ? H * (W < 600 ? 0.08 : 0.12) : 0);
+    ctx.drawImage(img, x0, y0, dw, dh);
+    // feather the frame edges into the stage so no rectangle shows
+    var fx = dw * 0.14, fy = dh * 0.14, g;
+    [[x0 - 1, y0 - 1, fx + 1, dh + 2, x0, 0, x0 + fx, 0], [x0 + dw - fx, y0 - 1, fx + 1, dh + 2, x0 + dw, 0, x0 + dw - fx, 0],
+     [x0 - 1, y0 - 1, dw + 2, fy + 1, 0, y0, 0, y0 + fy], [x0 - 1, y0 + dh - fy, dw + 2, fy + 1, 0, y0 + dh, 0, y0 + dh - fy]].forEach(function (r) {
+      g = ctx.createLinearGradient(r[4], r[5], r[6], r[7]);
+      g.addColorStop(0, '#040a16'); g.addColorStop(1, 'rgba(4,10,22,0)');
+      ctx.fillStyle = g; ctx.fillRect(r[0], r[1], r[2], r[3]);
+    });
+    shown = i;
+  }
+  function beatState(p) {
+    var mobile = isCompact();
+    beats.forEach(function (b) {
+      var a = +b.dataset.a, e = +b.dataset.b, f = (e - a) * 0.22, o = 1, t = 0;
+      if (p < a - 0.001 || p > e) { o = 0; t = p < a ? 1 : -1; }
+      else {
+        if (a > 0 && p < a + f) { t = 1 - (p - a) / f; o = 1 - t; }
+        if (p > e - f) { t = -(p - (e - f)) / f; o = 1 + t; }
+      }
+      b.style.opacity = o.toFixed(3);
+      b.style.transform = mobile ? 'translateY(' + (t * 30).toFixed(1) + 'px)' : 'translateY(calc(-50% + ' + (t * 40).toFixed(1) + 'px))';
+      b.style.pointerEvents = o > 0.5 ? 'auto' : 'none';
+      b.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+    });
+  }
+  function tick() {
+    if (!alive) return;
+    var rect = stage.getBoundingClientRect();
+    var p = Math.min(1, Math.max(0, -rect.top / (stage.offsetHeight - window.innerHeight)));
+    current += (p - current) * (reduce ? 1 : 0.14);
+    if (Math.abs(p - current) < 0.0004) current = p;
+    var i = Math.round(current * (N - 1));
+    if (i !== shown || (!isCompact() && current !== lastDrawnP)) { draw(i); lastDrawnP = current; }
+    cpx += (px - cpx) * 0.06; cpy += (py - cpy) * 0.06;
+    if (!reduce) {
+      var ry = (current - 0.5) * 16 + cpx * 5, rx = cpy * -3 + Math.sin(current * Math.PI * 2) * 2;
+      cw.style.transform = 'rotateY(' + ry.toFixed(2) + 'deg) rotateX(' + rx.toFixed(2) + 'deg) scale(1.02)';
+    }
+    beatState(current);
+    bar.style.width = (current * 100).toFixed(1) + '%';
+    dis.style.opacity = smooth(current, 0.94, 1).toFixed(3);
+    hint.style.opacity = current > 0.02 ? 0 : 1;
+    var on = rect.bottom > 70 && current < 0.95;
+    if (on !== onStage) { onStage = on; topBar.classList.toggle('on-stage', on); document.body.classList.toggle('on-stage', on); }
+    raf = requestAnimationFrame(tick);
+  }
+
+  for (var n = 0; n < N; n++) {
+    (function (n) {
+      var im = new Image();
+      im.onload = im.onerror = function () {
+        loaded++;
+        loader.textContent = 'LOADING ' + Math.round(loaded / N * 100) + '%';
+        if (loaded === N) loader.style.opacity = 0;
+        if (Math.abs(n - shown) < 3 || shown < 0) shown = -1;
+      };
+      im.src = 'f/' + (n + 1) + '.jpg';
+      frames[n] = im;
+    })(n);
+  }
+
+  function onMove(e) { px = e.clientX / window.innerWidth - 0.5; py = e.clientY / window.innerHeight - 0.5; }
+  window.addEventListener('resize', resize);
+  window.addEventListener('pointermove', onMove, { passive: true });
+  window.addEventListener('pagehide', function () { alive = false; cancelAnimationFrame(raf); });
+  resize(); raf = requestAnimationFrame(tick);
+
+  // theme toggle
+  var tgl = document.getElementById('tgl');
+  function syncLabel() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    tgl.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  tgl.addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    syncLabel();
+  });
+  syncLabel();
+
+  // ---- below-the-hero choreography (hero code above is untouched) ----
+  var de = document.documentElement; de.classList.add('js');
+  var observers = [], cleanups = [];
+  function qa(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+
+  function splitWords(el) {
+    var n = 0;
+    (function walk(node) {
+      [].slice.call(node.childNodes).forEach(function (c) {
+        if (c.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(function (t) {
+            if (!t) return;
+            if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var w = document.createElement('span'), i = document.createElement('i');
+            w.className = 'w'; i.textContent = t; i.style.setProperty('--i', n++);
+            w.appendChild(i); frag.appendChild(w);
+          });
+          c.parentNode.replaceChild(frag, c);
+        } else if (c.nodeType === 1) walk(c);
+      });
+    })(el);
+  }
+
+  if (!reduce && 'IntersectionObserver' in window) {
+    qa('[data-r="stagger"]').forEach(function (el) {
+      [].slice.call(el.children).forEach(function (c, i) { c.style.setProperty('--i', i); });
+    });
+    qa('[data-r="words"]').forEach(splitWords);
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { var el = e.target._r || e.target; el.classList.remove('pre'); el.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    observers.push(io);
+    qa('[data-r]').forEach(function (el) {
+      el.classList.add('pre');
+      // a fully clipped element reports no intersection, so a clip reveal watches its parent
+      var t = el.dataset.r === 'clip' ? el.parentNode : el;
+      if (t !== el) t._r = el;
+      io.observe(t);
+    });
+
+    // count-up numbers
+    var co = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        co.unobserve(e.target);
+        var el = e.target, to = +el.dataset.count, t0 = null;
+        el.textContent = '0';
+        (function f(t) {
+          if (!t0) t0 = t;
+          var k = Math.min(1, (t - t0) / 1300);
+          el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3)));
+          if (k < 1) requestAnimationFrame(f);
+        })(performance.now());
+      });
+    }, { threshold: 0.8 });
+    observers.push(co);
+    qa('[data-count]').forEach(function (el) { co.observe(el); });
+  }
+
+  // visit steps: the step nearest the middle of the screen is highlighted
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('on', e.isIntersecting); });
+    }, { rootMargin: '-40% 0px -40% 0px' });
+    observers.push(so);
+    qa('.visit li').forEach(function (li) { so.observe(li); });
+  }
+
+  // portrait parallax + nav scroll-spy, one throttled scroll handler
+  var par = document.querySelector('[data-par]'), spyIds = ['services', 'about', 'faq', 'book'], navA = {}, busy = false, curAct = null;
+  qa('.top nav a[href^="#"]:not(.btn)').forEach(function (a) { navA[a.getAttribute('href').slice(1)] = a; });
+  function onScroll() {
+    if (busy) return; busy = true;
+    requestAnimationFrame(function () {
+      busy = false;
+      if (par && !reduce && window.innerWidth > 0) {
+        var r = par.parentNode.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight) {
+          var k = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+          par.style.setProperty('--py', (k * -26).toFixed(1) + 'px');
+        }
+      }
+      var act = null;
+      if (!onStage) spyIds.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < window.innerHeight * 0.4) act = id;
+      });
+      if (act !== curAct) {
+        curAct = act;
+        Object.keys(navA).forEach(function (id) {
+          var on = id === act; navA[id].classList.toggle('act', on);
+          if (on) navA[id].setAttribute('aria-current', 'true'); else navA[id].removeAttribute('aria-current');
+        });
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  cleanups.push(function () { window.removeEventListener('scroll', onScroll); });
+  onScroll();
+
+  // smooth accordion
+  qa('details').forEach(function (d) {
+    var s = d.querySelector('summary'), anim = null;
+    s.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (anim) anim.cancel();
+      var edge = d.offsetHeight - d.clientHeight, closedH = s.offsetHeight + edge;
+      var opening = !d.open, start = d.offsetHeight, end;
+      if (opening) { d.open = true; end = d.offsetHeight; start = closedH; } else { end = closedH; }
+      d.style.overflow = 'hidden';
+      anim = d.animate([{ height: start + 'px' }, { height: end + 'px' }], { duration: reduce ? 1 : 340, easing: 'cubic-bezier(.2,.7,.2,1)' });
+      anim.onfinish = anim.oncancel = function () {
+        if (!opening) d.open = false;
+        d.style.height = ''; d.style.overflow = ''; anim = null;
+      };
+    });
+  });
+
+  window.addEventListener('pagehide', function () {
+    observers.forEach(function (o) { o.disconnect(); });
+    cleanups.forEach(function (c) { c(); });
+  });
+
+  // booking form -> WhatsApp message (link opens in a new tab)
+  document.getElementById('bf').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var g = function (id) { return document.getElementById(id).value.trim(); };
+    var msg = 'Appointment request for Dr. Ayesha Karim%0AName: ' + encodeURIComponent(g('nm')) +
+      '%0APhone: ' + encodeURIComponent(g('ph')) + '%0APreferred day: ' + encodeURIComponent(g('dt')) +
+      '%0AReason: ' + encodeURIComponent(g('rs')) + (g('ms') ? '%0ANotes: ' + encodeURIComponent(g('ms')) : '');
+    var a = document.createElement('a');
+    a.href = 'https://wa.me/923000000000?text=' + msg; a.target = '_blank'; a.rel = 'noopener';
+    document.body.appendChild(a); a.click(); a.remove();
+    document.getElementById('fn').textContent = 'WhatsApp should now be open with your request. If it did not open, call the number above.';
+  });
+})();
+</script>
+
+</body></html>
